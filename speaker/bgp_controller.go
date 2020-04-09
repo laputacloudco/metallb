@@ -15,10 +15,12 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io"
 	"net"
+	"net/http"
 	"reflect"
 	"sort"
 	"strconv"
@@ -415,6 +417,52 @@ func (c *bgpController) SetNode(l log.Logger, node *v1.Node) error {
 
 	l.Log("event", "nodeChanged", "msg", "Node changed, resyncing BGP peers")
 	return c.syncPeers(l)
+}
+
+func (c *bgpController) StatusHandler() func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+
+		// Copy peers slice. We want to redact BGP passwords without modifying
+		// the actual peers.
+		peers := []peer{}
+		for _, p := range c.peers {
+			cp := peer{}
+
+			cp.BGP = p.BGP
+			cfgCopy := *p.Cfg
+			cp.Cfg = &cfgCopy
+
+			cp.Cfg.Password = "REDACTED"
+
+			peers = append(peers, cp)
+		}
+
+		var np peer
+		if c.nodePeer != nil {
+			np = peer{}
+			np.BGP = c.nodePeer.BGP
+			cfgCopy := *c.nodePeer.Cfg
+			np.Cfg = &cfgCopy
+
+			np.Cfg.Password = "REDACTED"
+		}
+
+		res := struct {
+			Peers    []peer
+			NodePeer peer
+		}{
+			Peers:    peers,
+			NodePeer: np,
+		}
+
+		j, err := json.MarshalIndent(res, "", "  ")
+		if err != nil {
+			http.Error(w, fmt.Sprintf("Failed to get status: %s", err), 500)
+			return
+		}
+		fmt.Fprint(w, string(j))
+	}
 }
 
 // parseNodePeer attempts to construct a BGP peer from information conveyed
