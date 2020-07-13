@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"go.universe.tf/metallb/internal/bgp"
-	"go.universe.tf/metallb/internal/config"
-	"go.universe.tf/metallb/internal/k8s"
+	"github.com/laputacloudco/metallb/internal/bgp"
+	"github.com/laputacloudco/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/k8s"
 
 	"github.com/go-kit/kit/log"
 	"github.com/google/go-cmp/cmp"

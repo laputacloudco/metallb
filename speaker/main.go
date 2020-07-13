@@ -26,12 +26,12 @@ import (
 	"syscall"
 	"time"
 
-	"go.universe.tf/metallb/internal/bgp"
-	"go.universe.tf/metallb/internal/config"
-	"go.universe.tf/metallb/internal/k8s"
-	"go.universe.tf/metallb/internal/layer2"
-	"go.universe.tf/metallb/internal/logging"
-	"go.universe.tf/metallb/internal/version"
+	"github.com/laputacloudco/metallb/internal/bgp"
+	"github.com/laputacloudco/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/k8s"
+	"github.com/laputacloudco/metallb/internal/layer2"
+	"github.com/laputacloudco/metallb/internal/logging"
+	"github.com/laputacloudco/metallb/internal/version"
 	v1 "k8s.io/api/core/v1"
 
 	gokitlog "github.com/go-kit/kit/log"

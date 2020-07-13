@@ -142,7 +142,7 @@ For example:
 
 For development, fork
 the [github repository](https://github.com/google/metallb), and add
-your fork as a remote in `$GOPATH/src/go.universe.tf/metallb`, with
+your fork as a remote in `$GOPATH/src/github.com/laputacloudco/metallb`, with
 `git remote add fork git@github.com:<your-github-user>/metallb.git`.
 
 ## The website

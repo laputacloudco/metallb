@@ -21,7 +21,7 @@ import (
 	"github.com/go-kit/kit/log"
 	v1 "k8s.io/api/core/v1"
 
-	"go.universe.tf/metallb/internal/allocator/k8salloc"
+	"github.com/laputacloudco/metallb/internal/allocator/k8salloc"
 )
 
 func (c *controller) convergeBalancer(l log.Logger, key string, svc *v1.Service) bool {

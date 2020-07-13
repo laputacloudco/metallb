@@ -6,9 +6,9 @@ import (
 	"net"
 	"testing"
 
-	"go.universe.tf/metallb/internal/allocator"
-	"go.universe.tf/metallb/internal/config"
-	"go.universe.tf/metallb/internal/k8s"
+	"github.com/laputacloudco/metallb/internal/allocator"
+	"github.com/laputacloudco/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/k8s"
 
 	"github.com/go-kit/kit/log"
 	"github.com/google/go-cmp/cmp"

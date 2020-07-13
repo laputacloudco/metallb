@@ -22,9 +22,9 @@ import (
 
 	"github.com/go-kit/kit/log"
 	"github.com/hashicorp/memberlist"
-	"go.universe.tf/metallb/internal/config"
-	"go.universe.tf/metallb/internal/layer2"
-	"k8s.io/api/core/v1"
+	"github.com/laputacloudco/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/layer2"
+	v1 "k8s.io/api/core/v1"
 )
 
 type layer2Controller struct {
@@ -87,13 +87,14 @@ func (c *layer2Controller) ShouldAnnounce(l log.Logger, name string, svc *v1.Ser
 		return bytes.Compare(hi[:], hj[:]) < 0
 	})
 
-	// Are we first in the list? If so, we win and should announce.
-	if len(nodes) > 0 && nodes[0] == c.myNode {
-		return ""
-	}
+	// // Are we first in the list? If so, we win and should announce.
+	// if len(nodes) > 0 && nodes[0] == c.myNode {
+	// 	return ""
+	// }
 
-	// Either not eligible, or lost the election entirely.
-	return "notOwner"
+	// // Either not eligible, or lost the election entirely.
+	// return "notOwner"
+	return ""
 }
 
 func (c *layer2Controller) SetBalancer(l log.Logger, name string, lbIP net.IP, pool *config.Pool) error {

@@ -20,11 +20,11 @@ import (
 	"os"
 	"reflect"
 
-	"go.universe.tf/metallb/internal/allocator"
-	"go.universe.tf/metallb/internal/config"
-	"go.universe.tf/metallb/internal/k8s"
-	"go.universe.tf/metallb/internal/logging"
-	"go.universe.tf/metallb/internal/version"
+	"github.com/laputacloudco/metallb/internal/allocator"
+	"github.com/laputacloudco/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/k8s"
+	"github.com/laputacloudco/metallb/internal/logging"
+	"github.com/laputacloudco/metallb/internal/version"
 
 	"github.com/go-kit/kit/log"
 	"k8s.io/api/core/v1"

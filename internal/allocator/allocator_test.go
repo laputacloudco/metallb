@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"go.universe.tf/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/config"
 
 	ptu "github.com/prometheus/client_golang/prometheus/testutil"
 )

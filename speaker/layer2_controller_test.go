@@ -6,8 +6,8 @@ import (
 	"sort"
 	"testing"
 
-	"go.universe.tf/metallb/internal/config"
-	"go.universe.tf/metallb/internal/k8s"
+	"github.com/laputacloudco/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/k8s"
 
 	"github.com/go-kit/kit/log"
 	v1 "k8s.io/api/core/v1"

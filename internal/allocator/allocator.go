@@ -1,4 +1,4 @@
-package allocator // import "go.universe.tf/metallb/internal/allocator"
+package allocator // import "github.com/laputacloudco/metallb/internal/allocator"
 
 import (
 	"errors"
@@ -7,7 +7,7 @@ import (
 	"net"
 	"strings"
 
-	"go.universe.tf/metallb/internal/config"
+	"github.com/laputacloudco/metallb/internal/config"
 
 	"github.com/mikioh/ipaddr"
 )

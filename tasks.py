@@ -85,9 +85,9 @@ def build(ctx, binaries, architectures, tag="dev", docker_user="metallb"):
         }
         for bin in binaries:
             run("go build -v -o build/{arch}/{bin}/{bin} -ldflags "
-                "'-X go.universe.tf/metallb/internal/version.gitCommit={commit} "
-                "-X go.universe.tf/metallb/internal/version.gitBranch={branch}' "
-                "go.universe.tf/metallb/{bin}".format(
+                "'-X github.com/laputacloudco/metallb/internal/version.gitCommit={commit} "
+                "-X github.com/laputacloudco/metallb/internal/version.gitBranch={branch}' "
+                "github.com/laputacloudco/metallb/{bin}".format(
                     arch=arch,
                     bin=bin,
                     commit=commit,
